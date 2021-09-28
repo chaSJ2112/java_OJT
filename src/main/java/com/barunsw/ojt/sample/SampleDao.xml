@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.barunsw.ojt.sample.SampleDao">
+  <select id="selectContent" resultType="com.barunsw.ojt.vo.SampleVo">
+  	SELECT 
+  		SEQ, CONTENTS 
+  	FROM 
+  		TB_SAMPLE
+  </select>
+  <insert id="insertContent" parameterType="String">
+  	INSERT INTO TB_SAMPLE (
+  		CONTENTS
+  	)
+  	VALUES (
+  		#{contents}
+  	)
+  </insert>
+  <update id="updateContent" parameterType="com.barunsw.ojt.vo.SampleVo">
+  	UPDATE TB_SAMPLE SET
+  		CONTENTS=#{contents}
+  	WHERE
+  		SEQ=#{seq}
+  </update>
+  <delete id="deleteContent" parameterType="String">
+  	DELETE FROM
+  		TB_SAMPLE
+	WHERE
+		CONTENTS=#{contents}
+  </delete>
+</mapper>
